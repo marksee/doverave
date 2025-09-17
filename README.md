@@ -1,16 +1,14 @@
-# Dover Ave Neighbors Directory
+# Stroll Dover Ave
 
-A welcoming, responsive neighborhood directory where Dover Ave residents can
-share photos, stories, and highlights about their households.
+Explore Dover Avenue like you are wandering down the sidewalk. The responsive site pairs a playful walking map with detailed household stories so you can discover who lives behind every front door.
 
 ## Getting started
 
-Open `index.html` in your browser to explore the directory experience. No build
-steps or external dependencies are required.
+Open `index.html` in your preferred browser. The experience is completely static—no build step or additional tooling is required.
 
-## Features
+## Highlights
 
-- Friendly hero section with quick search for households.
-- Responsive card grid showcasing featured neighbors with expandable details.
-- Submission form so new neighbors can add their household to the directory in real time.
-- Accessible focus states, semantic markup, and helpful messaging throughout the page.
+- Illustrated walking map sprinkled with trees, a winding street, and clickable house markers.
+- Live house detail panel that updates when you pick a home on the map or from the list.
+- Searchable household story grid with rich photography, traditions, and favorite neighborhood spots.
+- Keyboard-accessible controls, focus styling, and responsive layout for phones, tablets, and desktops.
