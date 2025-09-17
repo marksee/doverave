@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dover Ave Neighbors Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="branding">
+          <span class="logo" aria-hidden="true">🏡</span>
+          <div>
+            <h1>Dover Ave Neighbors</h1>
+            <p>Share the stories that make our block feel like home.</p>
+          </div>
+        </div>
+        <nav class="quick-links" aria-label="Quick links">
+          <a href="#directory">Directory</a>
+          <a href="#submit">Share your story</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <h2>Meet the neighbors that bring Dover Ave to life.</h2>
+            <p>
+              Browse snapshots of the families, friendly faces, and four-legged
+              pals that call our street home. Add your own photo and a few fun
+              facts so new neighbors can say hello by name.
+            </p>
+            <form class="search" role="search">
+              <label class="sr-only" for="searchInput">Search neighbors</label>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Search by name, house number, or fun fact..."
+                aria-describedby="searchHelper"
+              />
+              <span id="searchHelper" class="search-helper"
+                >Start typing to filter the directory.</span
+              >
+            </form>
+          </div>
+          <div class="hero-card" aria-hidden="true">
+            <div class="hero-card__image"></div>
+            <div class="hero-card__body">
+              <h3>The Bloom Family</h3>
+              <p>Hosts the annual block party and bakes famous lemon bars.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="directory">
+        <div class="container">
+          <header class="section__header">
+            <div>
+              <h2>Neighborhood directory</h2>
+              <p>
+                Flip through friendly faces and learn something new about the
+                folks next door. Click “View details” on a card to read more.
+              </p>
+            </div>
+            <span class="badge" id="directoryCount" aria-live="polite"></span>
+          </header>
+
+          <div class="card-grid" id="directoryGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="submit">
+        <div class="container">
+          <div class="section__header">
+            <div>
+              <h2>Share your home’s story</h2>
+              <p>
+                Upload a favorite photo and let the neighborhood know what makes
+                your household special. Submissions appear instantly in the
+                directory below.
+              </p>
+            </div>
+          </div>
+
+          <form class="submission-form" id="submissionForm">
+            <div class="form-grid">
+              <label>
+                Household name
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="The Bloom Family"
+                  required
+                />
+              </label>
+              <label>
+                House number
+                <input
+                  type="text"
+                  name="houseNumber"
+                  placeholder="1452"
+                  required
+                  pattern="[0-9A-Za-z\- ]+"
+                />
+              </label>
+              <label>
+                Photo link
+                <input
+                  type="url"
+                  name="photo"
+                  placeholder="https://..."
+                  required
+                />
+              </label>
+              <label>
+                Email (for follow-ups only)
+                <input type="email" name="email" placeholder="you@example.com" />
+              </label>
+              <label class="form-grid__span">
+                Fun facts &amp; highlights
+                <textarea
+                  name="highlights"
+                  rows="4"
+                  placeholder="We host porch concerts every summer and have the friendliest golden retriever named Maple!"
+                  required
+                ></textarea>
+              </label>
+            </div>
+            <div class="form-actions">
+              <label class="opt-in">
+                <input type="checkbox" name="contact" />
+                I’m happy to be contacted about neighborhood events.
+              </label>
+              <button type="submit" class="button">Add to directory</button>
+            </div>
+            <p class="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Made with care by the Dover Ave neighborhood council.</p>
+        <p class="footer-links">
+          <a href="mailto:hello@doverave.org">hello@doverave.org</a>
+          <span aria-hidden="true">•</span>
+          <a href="#">Community guidelines</a>
+        </p>
+      </div>
+    </footer>
+
+    <template id="cardTemplate">
+      <article class="neighbor-card">
+        <figure class="neighbor-card__figure">
+          <img loading="lazy" alt="" />
+        </figure>
+        <div class="neighbor-card__body">
+          <div class="neighbor-card__header">
+            <h3></h3>
+            <span class="neighbor-card__house"></span>
+          </div>
+          <p class="neighbor-card__highlights"></p>
+          <button type="button" class="neighbor-card__toggle" aria-expanded="false">
+            View details
+          </button>
+          <div class="neighbor-card__details" hidden>
+            <dl>
+              <div>
+                <dt>Household</dt>
+                <dd class="detail-name"></dd>
+              </div>
+              <div>
+                <dt>House number</dt>
+                <dd class="detail-number"></dd>
+              </div>
+              <div class="detail-opt-in" hidden>
+                <dt>Contact</dt>
+                <dd>Happy to hear about neighborhood events!</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
